@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-
-$:.unshift("lib")
-require 'rbuml/dsl'
+# run with `rbuml example.rb`
 
 uml_class 'ClassA' do
 	attribute "foo", "int"
@@ -11,13 +8,19 @@ end
 
 uml_class 'ClassB' do
 	extends 'ClassA'
-	has 'c', 'ClassC', :private
+	attribute 'c', :ClassC, :private
+	relationship 'ClassC', :has
+	note <<-eos
+		ClassB probably doesn't do much
+		with c, but let's have one anyway 
+	eos
 end
 
 uml_class 'ClassC'
 
 uml_class 'InterfaceA' do
-	method 'plot' do
+	kind :interface
+	method 'add_point', :bool do
 		argument 'x', :int
 		argument 'y', :int
 	end
