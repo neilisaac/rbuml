@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'rbuml/dsl'
+
+ARGV.each do |fn|
+	puts "running #{fn}"
+	code = File.read(fn)
+	eval(code)
+end
