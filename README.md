@@ -24,7 +24,7 @@ This should produce "example.png"  containing:
 
 "example.rb":
 
-```
+```ruby
 uml_class 'ClassA' do
 	attribute "foo", "int"
 	attribute "bar", "bool"
